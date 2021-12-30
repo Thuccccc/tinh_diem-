@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tính điểm trung bình 3 môn</title>
+    <script src="angular.min.js"></script>
+</head>
+<body ng-app="myApp" ng-controller="myCtrl">
+        <h3>Nhập điểm toán:
+            <input type="number" ng-model="toan" id="toan"></h3><br>
+        <h3>Nhập điểm lý:
+            <input type="number" ng-model="ly" id="ly"></h3><br>
+        <h3>Nhập điểm hóa:
+            <input type="number" ng-model="hoa" id="hoa"></h3><br>
+
+        <input type="button" ng-click="tinh()" value="Tính"><br>
+
+        <h3>Điểm Tổng: {{tong}}</h3>
+        <h3>Điểm Trung Bình: {{tb}}</h3>
+
+
+
+
+        <script>
+            var app= angular.module('myApp', []);
+            app.controller('myCtrl', function ($scope) {
+                $scope.toan=0;
+                $scope.ly=0;
+                $scope.hoa=0;
+                $scope.tong=0;
+                $scope.tb=0;
+                $scope.tinh= function () {
+                    $scope.tong = $scope.toan + $scope.ly + $scope.hoa;
+                    $scope.tb = ($scope.toan + $scope.ly + $scope.hoa)/3;
+                };
+            });
+        </script>
+</body>
+</html>
